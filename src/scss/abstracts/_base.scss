@@ -1,0 +1,181 @@
+$body-color:#505c65;
+$light-green: #e0f6f5;
+$light-red: #fbb3a6;
+
+/* Media Query Mixins */
+$breakpoints: (
+        'xs' : 320px,
+        's' : 360px,
+        'small' : 375px,
+        'mobile' : 425px,
+        'phablet' : 600px,
+        'tablet' : 768px, 
+        'desktop' : 992px,
+        'desktop-xl' : 1200px, 
+        'desktop-xxl' : 1400px,
+        'desktop-xxxl' : 1700px
+);
+
+@mixin mq($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @media (min-width: $value) {
+    @content;
+  } 
+}
+
+@mixin opacity($opac) {
+  opacity: $opac;  
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opac * 100)})";
+  filter: alpha(opacity = $opac);
+}
+
+@mixin radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin shadow($shadow) {
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin tshadow($tshadow) {
+  text-shadow: $tshadow;
+}
+
+@mixin placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin transform($trans) {
+  transform: $trans;
+  -webkit-transform: $trans;
+  -ms-transform: $trans;
+}
+
+@mixin transform-style($trans) {
+  transform-style: $trans;
+  -webkit-transform-style: $trans;
+  -ms-transform-style: $trans;
+}
+
+@mixin backface-visibility($bf) {
+  backface-visibility: $bf;
+  -webkit-backface-visibility: $bf;
+}
+
+@mixin animation ($delay, $duration, $count, $timefunc, $animation) {
+-webkit-animation-delay: $delay;
+-webkit-animation-duration: $duration;
+-webkit-animation-iteration-count: $count;
+-webkit-animation-name: $animation;
+-webkit-animation-fill-mode: forwards;
+-webkit-animation-timing-function: $timefunc;
+
+-moz-animation-delay: $delay;
+-moz-animation-duration: $duration;
+-moz-animation-iteration-count: $count;
+-moz-animation-name: $animation;
+-moz-animation-fill-mode: forwards;
+-moz-animation-timing-function: $timefunc;
+
+-o-animation-delay: $delay;
+-o-animation-duration: $duration;
+-o-animation-iteration-count: $count;
+-o-animation-name: $animation;
+-o-animation-fill-mode: forwards;
+-o-animation-timing-function: $timefunc;
+
+animation-delay: $delay;
+animation-duration: $duration;
+animation-iteration-count: $count;
+animation-name: $animation;
+animation-fill-mode: forwards;
+animation-timing-function: $timefunc;
+}
+
+@function get-value($n) {
+ @return $n / ($n * 0 + 1);
+}
+
+@mixin font-size($font-size) {
+ $base-size: get-value($base / 100);
+ $base-px-size: 20 * $base-size;
+
+ font-size: $font-size;
+ font-size: (get-value($font-size) / $base-px-size) + rem;
+}
+
+@mixin clearfix() {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+// https://codepen.io/thebabydino/pen/XbxKbL
+@mixin combmask() {
+  -webkit-clip-path: polygon(98.66025% 45%, 99.39693% 46.5798%, 99.84808% 48.26352%, 100% 50%, 99.84808% 51.73648%, 99.39693% 53.4202%, 98.66025% 55%, 78.66025% 89.64102%, 77.66044% 91.06889%, 76.42788% 92.30146%, 75% 93.30127%, 73.4202% 94.03794%, 71.73648% 94.48909%, 70% 94.64102%, 30% 94.64102%, 28.26352% 94.48909%, 26.5798% 94.03794%, 25% 93.30127%, 23.57212% 92.30146%, 22.33956% 91.06889%, 21.33975% 89.64102%, 1.33975% 55%, 0.60307% 53.4202%, 0.15192% 51.73648%, 0% 50%, 0.15192% 48.26352%, 0.60307% 46.5798%, 1.33975% 45%, 21.33975% 10.35898%, 22.33956% 8.93111%, 23.57212% 7.69854%, 25% 6.69873%, 26.5798% 5.96206%, 28.26352% 5.51091%, 30% 5.35898%, 70% 5.35898%, 71.73648% 5.51091%, 73.4202% 5.96206%, 75% 6.69873%, 76.42788% 7.69854%, 77.66044% 8.93111%, 78.66025% 10.35898%);
+          clip-path: polygon(98.66025% 45%, 99.39693% 46.5798%, 99.84808% 48.26352%, 100% 50%, 99.84808% 51.73648%, 99.39693% 53.4202%, 98.66025% 55%, 78.66025% 89.64102%, 77.66044% 91.06889%, 76.42788% 92.30146%, 75% 93.30127%, 73.4202% 94.03794%, 71.73648% 94.48909%, 70% 94.64102%, 30% 94.64102%, 28.26352% 94.48909%, 26.5798% 94.03794%, 25% 93.30127%, 23.57212% 92.30146%, 22.33956% 91.06889%, 21.33975% 89.64102%, 1.33975% 55%, 0.60307% 53.4202%, 0.15192% 51.73648%, 0% 50%, 0.15192% 48.26352%, 0.60307% 46.5798%, 1.33975% 45%, 21.33975% 10.35898%, 22.33956% 8.93111%, 23.57212% 7.69854%, 25% 6.69873%, 26.5798% 5.96206%, 28.26352% 5.51091%, 30% 5.35898%, 70% 5.35898%, 71.73648% 5.51091%, 73.4202% 5.96206%, 75% 6.69873%, 76.42788% 7.69854%, 77.66044% 8.93111%, 78.66025% 10.35898%);
+}
+
+input::-ms-clear {
+  width: 0;
+  height: 0;
+}
+
+:focus {
+  outline: 0;
+}
+
+// Browser Prefixes - Which CSS prefixes should be used?
+$webkit: true !default;
+$moz: false !default;
+$ms: false !default;
+$o: false !default;
+
+// prefix keyframes
+@mixin keyframes($name) {
+  @if $webkit == true {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $moz == true {
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $ms == true {
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $o == true {
+    @-o-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+

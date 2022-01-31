@@ -1,0 +1,33 @@
+.navbar {
+    padding: 19px 60px 19px 65px;
+    background-color: #fff;
+    .navbar-collapse {
+        @include mq(desktop) {
+            align-items: center;
+            justify-content: space-between;
+        }  
+    } 
+    ul {
+        .nav-item {
+            padding: 0 25px;
+            &:first-of-type {
+                padding-left: 0;
+            }
+            &:last-of-type {
+                padding-right: 0;
+            }
+            .nav-link {
+                padding: 0;
+                text-transform: uppercase;
+                font-family: 'Josefin Sans', sans-serif;
+            }
+        }
+        &:last-of-type {
+            .nav-item {
+                &:nth-last-child(-n+3) {
+                    padding: 0 12px;
+                }
+            }
+        }
+    }
+}

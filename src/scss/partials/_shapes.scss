@@ -1,0 +1,142 @@
+.hero-title {
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    margin-bottom: 8px;
+}
+.hero-desc {
+    font-size: 17px;
+    font-weight: normal;
+    color: #FFFFFF;
+    opacity: 1;
+    max-width: 770px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 210px;
+    height: 50px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.8px;
+    color: #221F20;
+    border-radius: 26px;
+    text-transform: uppercase;
+    &-white {
+        background-color: #fff;
+    }
+    &-tran {
+        border: 1px solid #221f20;
+        background-color: transparent;
+    }
+}
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 2.1px;
+    font-size: 14px;
+}
+.main {
+    .container-fluid {
+        @include mq(desktop-xl) {
+            padding: 0 75px !important;
+        }
+    }
+}
+.product-box {
+    .product-img-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 34px 30px 33px 30px;
+        background-color: #F6F6F6;
+        margin-bottom: 15px;
+    }
+    .rating-stars {
+        margin-bottom: 10px;
+        .fa {
+            color: #EAEAEA;
+        }
+    }
+    .product-title {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.35px;
+        color: #221F20;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bold;
+    }
+}
+.checked {
+    color: orange !important;
+}
+.prod-title-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    span {
+        font-family: 'Josefin Sans', sans-serif;
+        letter-spacing: 1.2px;
+        color: #221F20;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+    }
+    h2 {
+        text-align: center;
+        font-size: 40px;
+        color: #221F20;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 50px;
+        letter-spacing: 0.8px;
+    }
+    p {
+        font-size: 16px;
+        color: #221F20;
+        text-align: center;
+        max-width: 410px;
+        font-weight: normal;
+    }
+}
+.prod-box {
+    position: relative;
+    background-color: #8DB9CA;
+    &:hover {
+        .overlay-img {
+            width: 0%;
+        }
+    }
+    .overlay-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        transition: .3s;
+        object-fit: cover;
+    }
+}
+.butt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}

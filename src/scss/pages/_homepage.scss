@@ -1,0 +1,29 @@
+.section-hero {
+    position: relative;
+    margin-top: -113px;
+    z-index: -1;
+    .hero-text-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+}
+.section-product-carousel {
+    padding: 75px 0;
+    .container-fluid {
+        padding-right: 0 !important;
+    }
+}
+.section-coffe {
+    .prod-title-box {
+        h2 {
+            margin-bottom: 15px;
+        }
+    }
+}

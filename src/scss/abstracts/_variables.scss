@@ -1,0 +1,49 @@
+$container-max-widths: (
+  sm: 576px,
+  md: 720px,
+  lg: 1200px
+) ;
+
+
+
+// responsive
+$lg-and-up-width: "1370px";
+$lg-width: "1170px";
+$md-width: "991px";
+$sm-and-up-width: "991px";
+$sm-width: "768px";
+$xs-width: "550px";
+
+$grid-columns:               12;
+$grid-gutter-width:          30px;
+
+
+@mixin lgup {
+	@media (min-width: #{$lg-and-up-width}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (max-width: #{$lg-width}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (max-width: #{$md-width}) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (max-width: #{$sm-width}) {
+		@content;
+	}
+}
+
+@mixin xs {
+	@media (max-width: #{$xs-width}) {
+		@content;
+	}
+}
